@@ -1,0 +1,63 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    font-family: Monoton;
+    font-size: 50px;
+    margin: 0.2em;
+}
+
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 462px;
+    width: 462px;
+    padding-top: 100px;
+
+}
+
+.grid div {
+    width: 150px;
+    height: 150px;
+    border: 3px solid black;
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid div:hover{
+    cursor: pointer;
+}
+
+
+#sqr1, #sqr2, #sqr3 {
+    border-top: none;
+}
+
+#sqr3, #sqr6, #sqr9 {
+    border-right: none;
+}
+
+#sqr7, #sqr8, #sqr9 {
+    border-bottom: none;
+}
+
+#sqr1, #sqr4, #sqr7 {
+    border-left: none;
+}
+
+.playerX {
+    background-image: url("cross.png");
+    background-size: contain;
+}
+
+.playerO {
+    background-image: url("O.png");
+    background-size: contain;
+}
+
