@@ -2,25 +2,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const squares = document.querySelectorAll(".grid div");
     const result = document.querySelector("#messageArea");
     const displayCurrentPlayer = document.querySelector("#current-player");
+    const displayWinnerPlayer = document.querySelector("#current-player1");
+    let modal = document.getElementById("myModal");
+    const buttonStartAgain = document.querySelector(".buttonAgain");
+
     let currentPlayer = "X";
 
-    for (let i = 0; i < squares.length; i++) 
-
-    (function(index) {
-        squares[i].onclick = function() {
-            if(currentPlayer === "X") {
-                squares[index].classList.add("taken");
-                squares[index].classList.add("playerX");
-                currentPlayer = "O";
-                displayCurrentPlayer.innerHTML = currentPlayer;
-            } else if (currentPlayer === "O") {
-                squares[index].classList.add("playerO");
-                squares[index].classList.add("taken");
-                currentPlayer = "X";
-                displayCurrentPlayer.innerHTML = currentPlayer;
-            }
+    function addImages() {
+        for (let i = 0; i < squares.length; i++) {
+            squares[i].onclick = function() {
+                if(currentPlayer === "X") {
+                    squares[i].classList.add("playerX");
+                    currentPlayer = "O";
+                } else if (currentPlayer === "O") {
+                    squares[i].classList.add("playerO");
+                    currentPlayer = "X";
+                }
         }
-    })(i);
+    }
+}
+
+    addImages();
+
     
     function checkBoard() {
         const winningArays = [
@@ -36,15 +39,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if(square1.classList.contains("playerX") && 
                square2.classList.contains("playerX") &&
                square3.classList.contains("playerX")) {
-                   result.innerHTML = "Player X wins!";
+                   modal.style.display = "block";
+                   displayWinnerPlayer.innerHTML = "X";
+
                } else if (square1.classList.contains("playerO") && 
                square2.classList.contains("playerO") &&
                square3.classList.contains("playerO") ) {
-                   result.innerHTML = "Player O wins!"
+                   modal.style.display = "block";
+                   displayWinnerPlayer.innerHTML = "O";
                }
         }
     }
 
+    function restartGame() {
+        modal.style.display = "none";
+        squares.forEach(square => square.classList.remove("playerX", "playerO"));
+    }
+
+    buttonStartAgain.addEventListener("click", restartGame);
     squares.forEach(square => square.addEventListener("click", checkBoard));
 })
 
