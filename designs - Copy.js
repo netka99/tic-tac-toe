@@ -22,38 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 }
 
-function playWithComputer() {
-    let emptySquares = document.querySelectorAll(".empty");
-    for (let i = 0; i < emptySquares.length; i++) {
-     
-      if(currentPlayer === "X") {
-          emptySquares[i].onclick = function() {
-            emptySquares[i].classList.remove("empty");
-            emptySquares[i].classList.add("playerX");
-           currentPlayer = "O";
-           displayCurrentPlayer.innerHTML = currentPlayer;
-          }
-       } else if (currentPlayer === "O"){
-           let countEmptySquares = emptySquares.length;
-            let randomPosition = emptySquares[Math.floor(Math.random() * (9- countEmptySquares))];
-            randomPosition.classList.remove("empty");
-            randomPosition.classList.add("playerO");
-            currentPlayer = "X";
-            displayCurrentPlayer.innerHTML = currentPlayer;
-            
-  }
-}
-}
-
-playWithComputer();
-function moveMole() {
-    let timerId = null
-    timerId = setInterval(playWithComputer, 2500)
-  }
-  
-  moveMole()
-
-  //  addImages();
+    addImages();
 
     
     function checkBoard() {
@@ -88,19 +57,6 @@ function moveMole() {
     }
 
     buttonStartAgain.addEventListener("click", restartGame);
-    function checkWinning(){
-        for (let i = 0; i < squares.length; i++) {
-            checkBoard();
-            console.log("hello");
-        }
-    }
-
-   function check() {
-        let timerId = null
-        timerId = setInterval(checkWinning, 1000)
-      } 
-    checkWinning();
-    check();
- //   squares.forEach(square => square.addEventListener("click", checkBoard));
+    squares.forEach(square => square.addEventListener("click", checkBoard));
 })
 
