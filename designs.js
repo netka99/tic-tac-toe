@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayWinnerPlayer = document.querySelector("#current-player1");
     let modal = document.getElementById("myModal");
     let modal1 = document.getElementById("myModal1");
+    let modal2 = document.getElementById("myModal2");
     const buttonStartAgain = document.querySelector(".buttonAgain");
+    const buttonStartAgain1 = document.querySelector(".buttonAgain1");
     const buttonPlayer1 = document.querySelector(".button1");
     const buttonPlayer2 = document.querySelector(".button2");
     let currentPlayer = "X";
@@ -94,9 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearInterval(timerId);
                 
             } else if (document.querySelectorAll(".empty").length === 0) {
-                
-                result.innerHTML = "DRAW !!!";
-              
+                modal2.style.display = "block";
+                clearInterval(timerId1);
+                clearInterval(timerId);
             }
         }
     }
@@ -140,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function restartGame() {
         modal.style.display = "none";
+        modal2.style.display = "none";
         clearInterval(timerEntryWindow);
         modal1.style.display = "block";
         squares.forEach(square => square.classList.remove("playerX", "playerO"));
@@ -153,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     buttonStartAgain.addEventListener("click", restartGame);
+    buttonStartAgain1.addEventListener("click", restartGame);
     buttonPlayer1.addEventListener("click", twoPlayers);
     buttonPlayer2.addEventListener("click", withComputer);
 
