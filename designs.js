@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkWinning() {
         for (let i = 0; i < squares.length; i++) {
             checkBoard();
-            console.log("hello");
         }
     };
 
