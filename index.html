@@ -2,45 +2,59 @@
 <html>
 
 <head>
-    <title>tic tac toe2</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
-    <link rel="stylesheet" href="styles.css">
+  <title>tic tac toe2</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>TIC TAC TOE</h1>
-    <h3> 
-        The current Player is: Player <span id="current-player">X</span>
-    </h3>
-    <div id="messageArea"></div>
-    <div class ="grid">
-        <div id = "sqr1" class= "empty" ></div>
-        <div id = "sqr2" class= "empty"></div>
-        <div id = "sqr3" class= "empty"></div>
-        <div id = "sqr4" class= "empty"></div>
-        <div id = "sqr5" class= "empty"></div>
-        <div id = "sqr6" class= "empty"></div>
-        <div id = "sqr7" class= "empty"></div>
-        <div id = "sqr8" class= "empty"></div>
-        <div id = "sqr9" class= "empty"></div>
-    </div>
+  <h1>TIC TAC TOE</h1>
+  <h2>
+    The current Player is: Player <span id="current-player">X</span>
+  </h2>
+  <div id="messageArea"></div>
+  <div class="grid">
+    <div id="sqr1" class="empty"></div>
+    <div id="sqr2" class="empty"></div>
+    <div id="sqr3" class="empty"></div>
+    <div id="sqr4" class="empty"></div>
+    <div id="sqr5" class="empty"></div>
+    <div id="sqr6" class="empty"></div>
+    <div id="sqr7" class="empty"></div>
+    <div id="sqr8" class="empty"></div>
+    <div id="sqr9" class="empty"></div>
+  </div>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2>CONGRATULATION !!!</h2>
-          </div>
-          <div class="modal-body">
-           <p> Player <span id="current-player1"></span> is a winner !!!</p>
-          </div>
-          <div class = "buttonStartAgain">
-              <button class = "buttonAgain">Start again</button>
-          </div>
-        </div>
-      
+  <div id="myModal1" class="modal1">
+    <div class="entryWindow">
+      <div class="entryTekst">
+        <p>CHOOSE ONE OPTION:</p>
       </div>
-    <script src="designs.js"></script>
+
+      <div class="entryWindow1">
+        <button class="button1">Two Players</button>
+        <button class="button2">Play with computer</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>CONGRATULATIONS !!!</h2>
+      </div>
+      <div class="modal-body">
+        <p> Player <span id="current-player1"></span> is a winner !!!</p>
+      </div>
+      <div class="buttonStartAgain">
+        <button class="buttonAgain">Start again</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="designs.js"></script>
 </body>
 
 </html>

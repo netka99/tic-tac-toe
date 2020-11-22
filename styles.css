@@ -1,164 +1,299 @@
 body {
-    text-align: center;
+  text-align: center;
 }
 
 h1 {
-    font-family: Monoton;
-    font-size: 50px;
-    margin: 0.2em;
+  font-family: Monoton;
+  font-size: 50px;
+  margin: 0.2em;
 }
 
-
-
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    height: 462px;
-    width: 462px;
-    padding-top: 100px;
-    margin-left: auto;
-    margin-right: auto;
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 462px;
+  width: 462px;
+  padding-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .grid div {
-    width: 150px;
-    height: 150px;
-    border: 3px solid black;
-    font-size: 5rem;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+  width: 150px;
+  height: 150px;
+  border: 3px solid black;
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.grid div:hover{
-    cursor: pointer;
+.grid div:hover {
+  cursor: pointer;
 }
-
 
 #sqr1, #sqr2, #sqr3 {
-    border-top: none;
+  border-top: none;
 }
 
 #sqr3, #sqr6, #sqr9 {
-    border-right: none;
+  border-right: none;
 }
 
 #sqr7, #sqr8, #sqr9 {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 #sqr1, #sqr4, #sqr7 {
-    border-left: none;
+  border-left: none;
 }
 
-
-
 .playerX {
-    background-image: url("cross.png");
-    background-size: contain;
+  background-image: url("cross.png");
+  background-size: contain;
 }
 
 .playerO {
-    background-image: url("O.png");
-    background-size: contain;
+  background-image: url("O.png");
+  background-size: contain;
 }
 
-
 /* The Modal (background) */
+
 .modal {
-    display: none;  /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 60%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    opacity: 1
   }
-  /* Modal Content */
-  .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 60%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-  }
-  
-  /* Add Animation */
-  @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-  }
-  
-  @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-  }
-  
-  /* The Close Button */
-  .close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .modal-header {
-    padding: 2px 16px;
-    background-color: #02ccba;
-    color: white;
-    text-align: center;
-    font-family: 'Indie Flower', cursive;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
-  .modal-body {
-      padding: 2px 16px;
-      text-align: center;
-      font-family: 'Indie Flower', cursive;
-      font-size: 28px;
-    }
+}
 
-    .starsRating {
-        display: inline;
-    }
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
 
-    .starsRating li {
-        list-style: none;
-      /* Displays horizontally instead of vertically */
-        display: inline-block;
-    }
+@-webkit-keyframes animateFrontWindow {
+  from {
+    top: 0px;
+    opacity: 1
+  }
+  to {
+    top: -300px;
+    opacity: 0
+  }
+}
 
-    .buttonStartAgain {
-        padding: 20px 20px;
-        text-align: center;
-        
+@keyframes animateFrontWindow {
+  from {
+    top: 0px;
+    opacity: 1
+  }
+  to {
+    top: -300px;
+    opacity: 0
+  }
+}
 
-    }
+/* The Close Button */
 
-    .buttonAgain {
-        padding: 2px 16px;
-        text-align: center;
-        font-family: 'Indie Flower', cursive;
-        font-size: 32px;
-        background-color: aquamarine;
-    }
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #CEB3DC;
+  color: white;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.modal-body {
+  padding: 2px 16px;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  font-size: 28px;
+}
+
+.starsRating {
+  display: inline;
+}
+
+.starsRating li {
+  list-style: none;
+  /* Displays horizontally instead of vertically */
+  display: inline-block;
+}
+
+.buttonStartAgain {
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.buttonAgain {
+  padding: 2px 16px;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  font-size: 32px;
+  background-color: #CEB3DC;
+}
+
+.modal1 {
+  display: block;  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.animation {
+  -webkit-animation-name: animateFrontWindow;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animateFrontWindow;
+  animation-duration: 0.4s;
+}
+
+.entryWindow {
+  position: relative;
+  background-color: #F3EBE9;
+  margin: auto;
+  padding: 0;
+  width: 70%;
+  height: 40%;
+
+}
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+.button1 {
+  padding: 2px 16px;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  font-size: 35px;
+  background-color: #CEB3DC;
+}
+
+.button2 {
+  padding: 2px 16px;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  font-size: 35px;
+  background-color: #CEB3DC;
+}
+
+.entryTekst {
+  align-items: center;
+  margin: 50px;
+  text-align: center;
+  font-size: 45px;
+  font-weight: bold;
+  font-family: 'Indie Flower', cursive;
+  padding-top: 40px;
+}
+
+.entryWindow1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
