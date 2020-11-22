@@ -18,10 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
             squares[i].onclick = function () {
                 if (currentPlayer === "X") {
                     squares[i].classList.add("playerX");
+                    squares[i].classList.remove("empty");
                     currentPlayer = "O";
                     displayCurrentPlayer.innerHTML = currentPlayer;
                 } else if (currentPlayer === "O") {
                     squares[i].classList.add("playerO");
+                    squares[i].classList.remove("empty");
                     currentPlayer = "X";
                     displayCurrentPlayer.innerHTML = currentPlayer;
                 }
@@ -42,12 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } else if (currentPlayer === "O") {
                 let countEmptySquares = emptySquares.length;
+                if (squares[4].classList.contains("empty")){
+                    squares[4].classList.remove("empty");
+                    squares[4].classList.add("playerO");
+                    currentPlayer = "X";
+                    displayCurrentPlayer.innerHTML = currentPlayer;  
+                } else {
                 let randomPosition = emptySquares[Math.floor(Math.random() * (9 - countEmptySquares))];
                 randomPosition.classList.remove("empty");
                 randomPosition.classList.add("playerO");
                 currentPlayer = "X";
                 displayCurrentPlayer.innerHTML = currentPlayer;
-
+                }
             }
         }
     };
@@ -85,6 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearInterval(timerId1);
                 clearInterval(timerId);
                 
+            } else if (document.querySelectorAll(".empty").length === 0) {
+                
+                result.innerHTML = "DRAW !!!";
+              
             }
         }
     }
@@ -144,6 +156,5 @@ document.addEventListener('DOMContentLoaded', () => {
     buttonPlayer1.addEventListener("click", twoPlayers);
     buttonPlayer2.addEventListener("click", withComputer);
 
-    //   squares.forEach(square => square.addEventListener("click", checkBoard));
 })
 

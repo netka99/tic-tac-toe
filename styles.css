@@ -297,3 +297,9 @@ h1 {
   align-items: center;
   justify-content: space-around;
 }
+
+#messageArea {
+  font-size: 40px;
+  color: darkviolet;
+  font-weight: bold;
+}
